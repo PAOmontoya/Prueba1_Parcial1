@@ -4,11 +4,16 @@
  */
 package com.mycompany.prueba;
 
+import java.time.LocalDate;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author telip
  */
 public class BlockBusterRent extends javax.swing.JFrame {
+    MovieItem m=new MovieItem(0,"",0);
+    LocalDate date=LocalDate.now();
 
     /**
      * Creates new form BlockBuster
@@ -35,6 +40,7 @@ public class BlockBusterRent extends javax.swing.JFrame {
         rentarBUTTON = new javax.swing.JButton();
         addBUTTON = new javax.swing.JButton();
         buscarBUTTON = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,6 +57,11 @@ public class BlockBusterRent extends javax.swing.JFrame {
         Precio.setText("Precio:");
 
         rentarBUTTON.setText("Rentar");
+        rentarBUTTON.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rentarBUTTONActionPerformed(evt);
+            }
+        });
 
         addBUTTON.setText("add");
         addBUTTON.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +76,8 @@ public class BlockBusterRent extends javax.swing.JFrame {
                 buscarBUTTONActionPerformed(evt);
             }
         });
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\telip\\Downloads\\Blockbuster_logo.svg.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,14 +103,20 @@ public class BlockBusterRent extends javax.swing.JFrame {
                                 .addComponent(jLabel2))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(codigoFIELD, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                                .addComponent(codigoFIELD, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
                                 .addComponent(nombreFIELD)))))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(codigoFIELD, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -114,7 +133,7 @@ public class BlockBusterRent extends javax.swing.JFrame {
                     .addComponent(rentarBUTTON)
                     .addComponent(buscarBUTTON)
                     .addComponent(addBUTTON))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
 
         pack();
@@ -133,6 +152,11 @@ public class BlockBusterRent extends javax.swing.JFrame {
         new BlockBusterBuscar().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buscarBUTTONActionPerformed
+
+    private void rentarBUTTONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentarBUTTONActionPerformed
+
+        rent();
+    }//GEN-LAST:event_rentarBUTTONActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,13 +199,20 @@ public class BlockBusterRent extends javax.swing.JFrame {
         String nombre=nombreFIELD.getText();
         Double precio=Double.parseDouble(precioFIELD.getText());
         
+        m.setCodigo(codigo);
+        m.setNombre(nombre);
+        m.setPrecioRentaItem(precio);
         
-        //funcion de añadir juegos
-        
+        JOptionPane.showMessageDialog(null, "Ha sido añadido");
+        codigoFIELD.setText("");
+        nombreFIELD.setText("");
+        precioFIELD.setText("");
+        //add to shop list
     }
     
     public void rent(){
-        //add to array
+        //add to arraylist funtion aqui
+        //m.setFechaAdicionItem(today);
         
     }
     
@@ -193,6 +224,7 @@ public class BlockBusterRent extends javax.swing.JFrame {
     private javax.swing.JTextField codigoFIELD;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField nombreFIELD;
     private javax.swing.JTextField precioFIELD;
     private javax.swing.JButton rentarBUTTON;

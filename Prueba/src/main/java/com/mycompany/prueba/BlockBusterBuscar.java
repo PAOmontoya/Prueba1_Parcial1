@@ -142,8 +142,12 @@ public class BlockBusterBuscar extends javax.swing.JFrame {
     }//GEN-LAST:event_rentarBUTTONActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //funcion buscar here
-      
+        /*
+        if(find){
+        //funcion getInfo aqui
+        }
+        */
+                 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -180,6 +184,24 @@ public class BlockBusterBuscar extends javax.swing.JFrame {
             }
         });
     }
+    
+    /*
+    public boolean find(int code){
+    int codeSEARCHING
+    
+    for(int i=0; i<ArrayList.size;i++){
+    codeSEARCHING=ArrayList[i];
+    if(codeSEARCHING==code)
+    return true;
+    return false;
+    
+    }
+    
+    
+    
+    
+    }
+    */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField codigoFIELD;
